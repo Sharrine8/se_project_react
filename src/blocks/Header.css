@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1360px;
+}
+
+.header__container {
+  display: flex;
+}
+
+.header__logo {
+  height: 40px;
+  max-width: 89px;
+}
+
+.header__date {
+  padding-left: 24px;
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__nav_text {
+  display: flex;
+}
+
+.header__btn {
+  width: 116px;
+  background-color: #f3f3f3;
+  border: none;
+  height: 24px;
+  align-self: center;
+  padding: 0;
+  /* font-size: 20px;
+  font-weight: 700px; */
+  /* line-height: 24px; */
+}
+
+.header__username {
+}
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  padding: 4px 0 0 12px;
+}
