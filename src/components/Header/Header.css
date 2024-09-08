@@ -14,30 +14,40 @@
 }
 
 .header__date {
-  padding-left: 24px;
+  margin: 0 0 0 24px;
+  align-self: center;
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
 }
 
 .header__nav {
   display: flex;
 }
 
-.header__nav_text {
+.header__nav_user {
   display: flex;
 }
 
-.header__btn {
+.header__add-clothes-btn {
   width: 116px;
   background-color: #f3f3f3;
   border: none;
   height: 24px;
   align-self: center;
   padding: 0;
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
+  cursor: pointer;
   /* font-size: 20px;
   font-weight: 700px; */
   /* line-height: 24px; */
 }
 
 .header__username {
+  margin: 0;
+  align-self: center;
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
 }
 
 .header__avatar {

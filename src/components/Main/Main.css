@@ -1,0 +1,18 @@
+.main {
+  /* min-height: 735px; */
+  margin: 0;
+}
+
+.cards__info {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
+}
+
+.cards__item-cards {
+  margin: 0;
+  padding: 0;
+}

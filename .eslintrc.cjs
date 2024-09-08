@@ -12,7 +12,7 @@ module.exports = {
   settings: { react: { version: "18.2" } },
   plugins: ["react-refresh"],
   rules: {
-    "react/jsx-no-target-blank": "off" /*not on the edit sheet?*/,
+    "react/jsx-no-target-blank": "off",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
@@ -22,6 +22,7 @@ module.exports = {
 
   overrides: [
     {
+      //Without this, 'npx eslint .' doesn't run on jsx files
       files: ["*.js", "*.jsx"],
     },
   ],
