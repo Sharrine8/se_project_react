@@ -1,4 +1,69 @@
-.modal-with-form {
-  visibility: hidden;
+.modal {
+  /* visibility: hidden; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__close-btn {
   position: absolute;
+  top: 20px;
+  right: 28px;
+  background: transparent url("../../assets/modal-close.svg") no-repeat;
+  height: 16px;
+  width: 16px;
+  border: none;
+}
+
+.modal__content {
+  background-color: #fff;
+  border-radius: 12px;
+  position: relative;
+  padding: 28px 28px 36px;
+  max-width: 496px;
+  max-height: 438px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__title {
+  margin: 0;
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.modal__label {
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
+}
+
+.modal__input {
+  display: block;
+  opacity: 0.5;
+}
+
+.modal__legend {
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
+}
+
+.modal__radio-btns {
+  padding: 0;
+  margin: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../../index.css";
 import "./App.css";
 import Header from "../Header/Header.jsx";
@@ -8,15 +8,17 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
 function App() {
+  const [weatherData, setWeatherData] = useState({ type: "hot" });
+
   return (
     <div className="page">
       <div className="page__content">
         <Header />
-        <Main />
+        <Main weatherData={weatherData} />
         <Footer />
-        <ModalWithForm />
         <ItemModal />
       </div>
+      <ModalWithForm />
     </div>
   );
 }

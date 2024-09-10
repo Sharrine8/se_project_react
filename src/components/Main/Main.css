@@ -1,9 +1,8 @@
 .main {
-  /* min-height: 735px; */
   margin: 0;
 }
 
-.cards__info {
+.cards__text {
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -12,7 +11,10 @@
   font-weight: 700;
 }
 
-.cards__item-cards {
+.cards__list {
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }

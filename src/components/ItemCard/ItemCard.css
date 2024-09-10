@@ -1,8 +1,7 @@
-.itemCard {
+.item-card {
   height: 328px;
   width: 325px;
   border-radius: 10px;
-  background-image: url("../../assets/T-Shirt.png");
   padding: 0;
   margin: 0;
   display: flex;
@@ -12,12 +11,20 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.itemCard__info {
+.item-card__info {
   background-color: white;
   margin: 15px 0 0;
-  height: 24px;
   width: fit-content;
   border-radius: 5px;
-  text-align: center;
   padding: 2px 12px;
+  position: absolute;
+  font-size: 16px;
+  font-family: "CabinetGrotesk-Regular";
+  font-weight: 700;
+}
+
+.item-card__image {
+  background-position: center;
+  overflow: hidden;
+  border-radius: 12px;
 }

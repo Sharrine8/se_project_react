@@ -1,9 +1,10 @@
 import "./ItemCard.css";
 
-function ItemCard() {
+function ItemCard({ props }) {
   return (
-    <div className="itemCard">
-      <p className="itemCard__info">T-Shirt</p>
+    <div className="item-card">
+      <h2 className="item-card__info">{props.name}</h2>
+      <img src={props.link} alt={props.name} className="item-card__image"></img>
     </div>
   );
 }
