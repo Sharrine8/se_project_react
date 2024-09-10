@@ -7,7 +7,7 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-export default function Header() {
+export default function Header({ handleAddClick }) {
   return (
     <header className="header">
       <div className="header__container">
@@ -15,7 +15,13 @@ export default function Header() {
         <p className="header__date">{currentDate}, Houston</p>
       </div>
       <div className="header__nav">
-        <button className="header__add-clothes-btn">+ Add Clothes</button>
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          + Add Clothes
+        </button>
         <div className="header__nav_user">
           <p className="header__username">Terrace Tegegne</p>
           <img className="header__avatar" src={headerAvatar} alt="Avatar"></img>
