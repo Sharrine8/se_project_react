@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../index.css";
 import "./App.css";
 import Header from "../Header/Header.jsx";
@@ -6,9 +6,15 @@ import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import { coordinates, APIkey } from "../../utils/constants.js";
+import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ type: "hot" });
+  const [weatherData, setWeatherData] = useState({
+    type: "",
+    temp: { F: 999 },
+    city: "",
+  });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const handleAddClick = () => {
@@ -22,10 +28,19 @@ function App() {
     setSelectedCard(card);
   };
 
+  useEffect(() => {
+    getWeather(coordinates, APIkey)
+      .then((data) => {
+        const filteredData = filterWeatherData(data);
+        setWeatherData(filteredData);
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <div className="page">
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} />
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
@@ -82,18 +97,17 @@ function App() {
             ></input>
             Warm
           </label>
-
           <label
-            htmlFor="cool"
+            htmlFor="cold"
             className="modal__label modal__label_type_radio"
           >
             <input
               type="radio"
-              id="cool"
+              id="cold"
               name="weather"
               className="modal__input_type_radio"
             ></input>
-            Cool
+            Cold
           </label>
         </fieldset>
       </ModalWithForm>

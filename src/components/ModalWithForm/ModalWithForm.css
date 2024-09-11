@@ -58,7 +58,12 @@
 
 .modal__label_type_radio {
   margin-bottom: 8px;
-  opacity: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  transition: color 0.1s linear;
+}
+
+.modal__label_type_radio:has(:checked) {
+  color: rgba(0, 0, 0, 1);
 }
 
 .modal__input {
@@ -88,11 +93,6 @@
 .modal__input_type_radio {
   margin-right: 8px;
   accent-color: #000;
-}
-
-.modal__input_type_radio:checked {
-  accent-color: #000;
-  opacity: 100%;
 }
 
 .modal__submit {

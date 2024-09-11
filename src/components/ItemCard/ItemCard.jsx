@@ -1,7 +1,9 @@
 import "./ItemCard.css";
 
 function ItemCard({ props, onCardClick }) {
-  const handleCardClick = onCardClick(props);
+  const handleCardClick = () => {
+    onCardClick(props);
+  };
 
   return (
     <div className="item-card" onClick={handleCardClick}>

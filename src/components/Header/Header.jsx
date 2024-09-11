@@ -7,12 +7,14 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-export default function Header({ handleAddClick }) {
+export default function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <div className="header__container">
         <img className="header__logo" src={headerLogo} alt="logo"></img>
-        <p className="header__date">{currentDate}, Houston</p>
+        <p className="header__date">
+          {currentDate}, {weatherData.city}
+        </p>
       </div>
       <div className="header__nav">
         <button
