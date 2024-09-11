@@ -46,13 +46,13 @@
 
 .modal__title {
   margin: 0 0 24px;
-  font-family: "CabinetGrotesk-Bold";
+  font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
   font-size: 16px;
 }
 
 .modal__label {
-  font-family: "CabinetGrotesk-Bold";
+  font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
 }
 
@@ -77,7 +77,7 @@
 }
 
 .modal__legend {
-  font-family: "CabinetGrotesk-Bold";
+  font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
   margin-bottom: 12px;
 }
@@ -102,6 +102,6 @@
   border-radius: 4px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.3);
-  font-family: "CabinetGrotesk-Bold";
+  font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
 }

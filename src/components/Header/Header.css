@@ -16,7 +16,7 @@
 .header__date {
   margin: 0 0 0 24px;
   align-self: center;
-  font-family: "CabinetGrotesk-Bold";
+  font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
 }
 
@@ -35,7 +35,7 @@
   height: 24px;
   align-self: center;
   padding: 0;
-  font-family: "CabinetGrotesk-Bold";
+  font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
   cursor: pointer;
   /* font-size: 20px;
@@ -46,7 +46,7 @@
 .header__username {
   margin: 0;
   align-self: center;
-  font-family: "CabinetGrotesk-Bold";
+  font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
 }
 
