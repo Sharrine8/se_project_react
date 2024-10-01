@@ -1,5 +1,4 @@
 import React from "react";
-import "./DeleteConfirmationModal.css";
 
 function DeleteConfirmationModal({ isOpen, onClose, onDeleteItem }) {
   return (
