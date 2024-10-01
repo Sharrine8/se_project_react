@@ -1,0 +1,15 @@
+.sidebar {
+  display: flex;
+  gap: 16px;
+  min-width: 18vw;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.sidebar__username {
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 700;
+}

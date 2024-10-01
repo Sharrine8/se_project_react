@@ -1,0 +1,13 @@
+.clothes-section__info {
+  display: flex;
+  font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+  font-weight: 700;
+  gap: 20px;
+}
+
+.clothes-section__add-btn {
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #f3f3f3;
+  cursor: pointer;
+}

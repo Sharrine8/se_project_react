@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sharrine8.github.io/se_project_react/",
+  "homepage": "https://sharrine8.github.io///",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

@@ -14,13 +14,12 @@ export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
   result.temp = {
-    F: `${Math.ceil(data.main.temp)}°F`,
-    C: `${Math.ceil(((data.main.temp - 32) * 5) / 9)}°C`,
+    F: Math.ceil(data.main.temp),
+    C: Math.ceil(((data.main.temp - 32) * 5) / 9),
   };
   result.type = getWeatherType(result.temp.F);
   result.condition = data.weather[0].main.toLowerCase();
   result.isDay = isDay(data.sys, Date.now());
-  console.log(result.temp);
   return result;
 };
 

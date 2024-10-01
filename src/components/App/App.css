@@ -5,11 +5,12 @@
 }
 
 .page {
-  padding: 2rem 2rem 0 2rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   box-sizing: border-box;
   max-width: 1440px;
   background-color: #f3f3f3;
   min-height: 100vh;
+  min-width: 80vw;
 }
 
 .page__content {
