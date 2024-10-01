@@ -3,15 +3,18 @@ import React from "react";
 function DeleteConfirmationModal({ isOpen, onClose, onDeleteItem }) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
-      <div className="modal__content">
+      <div className="modal__content modal__delete-modal">
         <button
-          className="modal__close"
+          className="modal__close-btn"
           onClick={onClose}
           type="button"
         ></button>
-        <p className="modal__text">
-          Are you sure you want to delete this item?
-        </p>
+        <div className="modal__warning">
+          <p className="modal__text">
+            Are you sure you want to delete this item?
+          </p>
+          <p className="modal__text">This action is irreversible.</p>
+        </div>
         <button
           className="modal__delete-btn modal__text"
           onClick={onDeleteItem}

@@ -1,5 +1,3 @@
-import "./ItemModal.css";
-
 function ItemModal({ activeModal, card, onClose, onDeleteItem }) {
   return (
     <div className={`modal ${activeModal === "preview" ? "modal_opened" : ""}`}>

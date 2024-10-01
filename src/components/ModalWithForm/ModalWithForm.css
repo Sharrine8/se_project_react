@@ -118,4 +118,59 @@
   font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__image {
+  margin: 0;
+  padding: 0;
+  max-height: 498px;
+  max-width: 498px;
+  border-radius: 16px 16px 0 0;
+}
+
+.modal__footer {
+  max-height: 112px;
+  box-sizing: border-box;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal__left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal__image-content {
+  max-width: 498px;
+  max-height: 610px;
+  background: #fff;
+  border-radius: 16px;
+  position: relative;
+}
+
+.modal__cancel-btn {
+  margin: 24px 0 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__delete-modal {
+  max-height: 280px;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__warning {
+  text-align: center;
+  margin: 0 0 40px;
 }

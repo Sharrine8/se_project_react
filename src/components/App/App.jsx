@@ -37,7 +37,6 @@ function App() {
   };
 
   const openConfirmationModal = () => {
-    console.log("hey");
     setActiveModal("delete");
   };
   const handleToggleSwitchChange = () => {
@@ -54,11 +53,16 @@ function App() {
   };
 
   const handleCardDelete = () => {
-    console.log("hey");
+    console.log("hey asd");
     //api call to delete card
     //clothingItems state should be updated using the filter() method
     //create a copy of the array and exclude the deleted card from it
     //close the modal window
+    // the handleCardDelete handler, which is passed from the App to
+    // the DeleteConfirmationModal component. This handler makes the
+    //API call. After a successful API request, the clothingItems
+    //state needs to be updated, the modals closed, and the state
+    //containing the card should be reset.
   };
 
   useEffect(() => {
