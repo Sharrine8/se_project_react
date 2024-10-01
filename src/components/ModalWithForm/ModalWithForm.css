@@ -104,3 +104,18 @@
   font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
 }
+
+.modal__text {
+  margin: 0;
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 700;
+}
+
+.modal__delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #f00;
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 700;
+  cursor: pointer;
+}

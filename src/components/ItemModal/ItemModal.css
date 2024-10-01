@@ -36,6 +36,12 @@
   box-sizing: border-box;
   padding: 20px 32px;
   display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal__left {
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
@@ -44,5 +50,13 @@
   margin: 0;
   font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
-  font-size: 20px;
+}
+
+.modal__delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #f00;
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 700;
+  cursor: pointer;
 }
