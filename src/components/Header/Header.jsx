@@ -1,6 +1,7 @@
 import "./Header.css";
 import headerLogo from "../../assets/logo.svg";
 import headerAvatar from "../../assets/avatar.png";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 const currentDate = new Date().toLocaleString("default", {
   month: "long",
@@ -17,6 +18,7 @@ export default function Header({ handleAddClick, weatherData }) {
         </p>
       </div>
       <div className="header__nav">
+        <ToggleSwitch />
         <button
           onClick={handleAddClick}
           type="button"
