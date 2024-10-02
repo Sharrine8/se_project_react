@@ -2,11 +2,7 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
   ).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
 };
 
@@ -36,6 +32,3 @@ const getWeatherType = (temperature) => {
     return "cold";
   }
 };
-
-// weather.temperature.F = `${Math.round(data.main.temp)}°F`;
-// weather.temperature.C = `${Math.round(((data.main.temp - 32) * 5) / 9)}°C`;

@@ -9,6 +9,7 @@ import Profile from "../Profile/Profile.jsx";
 import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
+import { getInitialItems, addItem, deleteItem } from "../../utils/api.js";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
@@ -45,15 +46,12 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
-  const onAddItem = (values) => {
-    console.log(values);
-  };
-  const handleAddItemSubmit = () => {
-    console.log("hey");
+  const handleAddItemSubmit = (values) => {
+    return addItem(values);
   };
 
   const handleCardDelete = () => {
-    console.log("hey asd");
+    return deleteItem();
     //api call to delete card
     //clothingItems state should be updated using the filter() method
     //create a copy of the array and exclude the deleted card from it
@@ -102,7 +100,7 @@ function App() {
           <AddItemModal
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "add-garment"}
-            onAddItem={onAddItem}
+            onAddItem={handleAddItemSubmit}
             onDeleteItem={handleCardDelete}
           />
         )}
