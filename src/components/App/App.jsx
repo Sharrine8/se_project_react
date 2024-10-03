@@ -48,12 +48,12 @@ function App() {
   };
 
   const handleAddItemSubmit = (values) => {
+    console.log(values);
     return addItem(values)
       .then((item) => {
-        values._id = item._id;
-        const itemList = [...clothingItems];
-        itemList.push(values);
-        setClothingItems(itemList);
+        console.log(item);
+        setClothingItems([item, ...clothingItems]);
+        console.log(clothingItems);
         closeActiveModal();
       })
       .catch(console.error);
