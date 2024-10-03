@@ -16,30 +16,29 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const checkResponse = (res) => {
+export function checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-};
+}
 
-function request(url, options) {
+export function request(url, options) {
   return fetch(url, options).then(checkResponse);
 }
 
-export function getInitialItems() {
+export function getItems() {
   return request(`${baseUrl}/items`, {
     method: "GET",
   });
 }
 
-export function addItem({ name, imageUrl, weather }) {
+export function addItem({ name, weather, imageUrl }) {
   return request(`${baseUrl}/items`, {
     method: "POST",
     headers: headers,
   });
 }
 
-export function deleteItem() {
-  //:id represents a variable and : shouldn't be included in final
-  return request(`${baseUrl}/items/:id`, {
+export function deleteItem(cardId) {
+  return request(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
     headers: headers,
   });

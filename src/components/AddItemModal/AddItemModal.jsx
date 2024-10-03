@@ -1,11 +1,10 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 
-// onAddItem refers to handleAddItemSubmit, which is declared in App.js
 const AddItemModal = ({ isOpen, onAddItem, handleCloseModal }) => {
   // declare state for each input field
   const [name, setName] = useState("");
-  const [link, setUrl] = useState("");
+  const [imageUrl, setUrl] = useState("");
   const [weather, setWeatherType] = useState("");
   // use a useEffect hook to reset the input field state to empty strings when
   // the modal is opened
@@ -23,12 +22,11 @@ const AddItemModal = ({ isOpen, onAddItem, handleCloseModal }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddItem({ name, link, weather });
+    onAddItem({ _id: null, name, weather, imageUrl });
   }
 
   return (
     <>
-      {/* don't forget to pass appropriate props to ModalWithForm */}
       <ModalWithForm
         buttonText="Add garment"
         title="New garment"
@@ -59,12 +57,12 @@ const AddItemModal = ({ isOpen, onAddItem, handleCloseModal }) => {
             name="imageUrl"
             id="imageUrl"
             placeholder="Image URL"
-            value={link}
+            value={imageUrl}
             onChange={handleUrlChange}
             required
           />
         </label>
-        <fieldset className="modal__radio-btns">
+        <fieldset className="modal__radio-btns" value={weather}>
           <legend className="modal__legend">Select the weather type:</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
             <input
