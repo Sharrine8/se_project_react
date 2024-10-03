@@ -14,7 +14,6 @@ import { coordinates, APIkey } from "../../utils/constants.js";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal.jsx";
-//add api.js
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -25,7 +24,6 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
-  console.log(clothingItems);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] =
     React.useState("F");
 
@@ -58,7 +56,7 @@ function App() {
         setClothingItems(itemList);
         closeActiveModal();
       })
-      .catch((err) => console.error(`Error: ${err}`));
+      .catch(console.error);
   };
 
   const handleCardDelete = () => {
@@ -70,16 +68,7 @@ function App() {
         setClothingItems(itemList);
         closeActiveModal();
       })
-      .catch((err) => console.error(`Error: ${err}`));
-    //api call to delete card
-    //clothingItems state should be updated using the filter() method
-    //create a copy of the array and exclude the deleted card from it
-    //close the modal window
-    // the handleCardDelete handler, which is passed from the App to
-    // the DeleteConfirmationModal component. This handler makes the
-    //API call. After a successful API request, the clothingItems
-    //state needs to be updated, the modals closed, and the state
-    //containing the card should be reset.
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -123,6 +112,7 @@ function App() {
                 <Profile
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
                 />
               }
             />
