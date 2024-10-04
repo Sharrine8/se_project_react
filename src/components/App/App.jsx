@@ -27,6 +27,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] =
     React.useState("F");
+  // const [isLoading, setIsLoading] = React.useState(false);
 
   //Modal functions
 
@@ -56,6 +57,7 @@ function App() {
   };
 
   const handleAddItemSubmit = (values) => {
+    // setIsLoading(true);
     return addItem(values)
       .then((item) => {
         const newCard = {
@@ -67,11 +69,13 @@ function App() {
         setClothingItems([newCard, ...clothingItems]);
         console.log(clothingItems);
         closeActiveModal();
+        // setIsLoading(false);
       })
       .catch(console.error);
   };
 
   const handleCardDelete = () => {
+    // setIsLoading(true);
     return deleteItem(selectedCard._id)
       .then(() => {
         const itemList = clothingItems.filter((item) => {
@@ -79,6 +83,7 @@ function App() {
         });
         setClothingItems(itemList);
         closeActiveModal();
+        // setIsLoading(false);
       })
       .catch(console.error);
   };

@@ -17,11 +17,11 @@ export function getItems() {
   });
 }
 
-export function addItem({ _id, name, weather, imageUrl }) {
+export function addItem({ name, weather, imageUrl }) {
   return request(`${baseUrl}/items`, {
     method: "POST",
     headers: headers,
-    body: JSON.stringify({ _id, name, weather, imageUrl }),
+    body: JSON.stringify({ name, weather, imageUrl }),
   });
 }
 
