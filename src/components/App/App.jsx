@@ -16,6 +16,7 @@ import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal.jsx";
 
 function App() {
+  //States
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -27,32 +28,43 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] =
     React.useState("F");
 
+  //Modal functions
+
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
   const closeActiveModal = () => {
     setActiveModal("");
   };
-  const handleCardClick = (card) => {
-    setActiveModal("preview");
-    setSelectedCard(card);
-  };
 
   const openConfirmationModal = () => {
     setActiveModal("delete");
   };
+
+  //Toggle switch
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
       ? setCurrentTemperatureUnit("C")
       : setCurrentTemperatureUnit("F");
   };
 
+  //Item view and changes functions
+
+  const handleCardClick = (card) => {
+    setActiveModal("preview");
+    setSelectedCard(card);
+  };
+
   const handleAddItemSubmit = (values) => {
-    console.log(values);
     return addItem(values)
       .then((item) => {
-        console.log(item);
-        setClothingItems([item, ...clothingItems]);
+        const newCard = {
+          _id: item._id,
+          name: values.name,
+          weather: values.weather,
+          imageUrl: values.imageUrl,
+        };
+        setClothingItems([newCard, ...clothingItems]);
         console.log(clothingItems);
         closeActiveModal();
       })
@@ -70,6 +82,24 @@ function App() {
       })
       .catch(console.error);
   };
+
+  //React useEffect statements
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
