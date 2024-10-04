@@ -4,19 +4,19 @@ import { useForm } from "../../hooks/hooks";
 
 const AddItemModal = ({ isOpen, onAddItem, handleCloseModal }) => {
   const [name, setName] = useState("");
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
+  // const handleNameChange = (e) => {
+  //   setName(e.target.value);
+  // };
 
   const [imageUrl, setUrl] = useState("");
-  const handleUrlChange = (e) => {
-    setUrl(e.target.value);
-  };
+  // const handleUrlChange = (e) => {
+  //   setUrl(e.target.value);
+  // };
 
   const [weather, setWeather] = useState("");
-  const handleWeatherChange = (e) => {
-    setWeather(e.target.value);
-  };
+  // const handleWeatherChange = (e) => {
+  //   setWeather(e.target.value);
+  // };
 
   const { values, handleChange, setValues } = useForm({
     _id: null,
