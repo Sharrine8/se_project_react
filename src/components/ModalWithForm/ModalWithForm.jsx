@@ -2,11 +2,11 @@ import "./ModalWithForm.css";
 
 function ModalWithForm({
   children,
-  buttonText,
   title,
   onClose,
   isOpen,
   onSubmit,
+  buttonText,
 }) {
   return (
     <div className={`modal ${isOpen === isOpen ? "modal_opened" : ""}`}>

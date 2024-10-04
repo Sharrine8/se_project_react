@@ -27,7 +27,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] =
     React.useState("F");
-  // const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   //Modal functions
 
@@ -57,7 +57,7 @@ function App() {
   };
 
   const handleAddItemSubmit = (values) => {
-    // setIsLoading(true);
+    setIsLoading(true);
     return addItem(values)
       .then((item) => {
         const newCard = {
@@ -69,13 +69,13 @@ function App() {
         setClothingItems([newCard, ...clothingItems]);
         console.log(clothingItems);
         closeActiveModal();
-        // setIsLoading(false);
+        setIsLoading(false);
       })
       .catch(console.error);
   };
 
   const handleCardDelete = () => {
-    // setIsLoading(true);
+    setIsLoading(true);
     return deleteItem(selectedCard._id)
       .then(() => {
         const itemList = clothingItems.filter((item) => {
@@ -83,7 +83,7 @@ function App() {
         });
         setClothingItems(itemList);
         closeActiveModal();
-        // setIsLoading(false);
+        setIsLoading(false);
       })
       .catch(console.error);
   };
@@ -159,6 +159,7 @@ function App() {
             handleCloseModal={closeActiveModal}
             isOpen={activeModal === "add-garment"}
             onAddItem={handleAddItemSubmit}
+            buttonText={isLoading ? "Saving" : "Add Garment"}
           />
         )}
         {activeModal === "preview" && (
@@ -173,6 +174,7 @@ function App() {
           isOpen={activeModal === "delete"}
           onClose={closeActiveModal}
           onDeleteItem={handleCardDelete}
+          buttonText={isLoading ? "Saving" : "Yes, delete item"}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>

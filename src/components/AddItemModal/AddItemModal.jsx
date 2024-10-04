@@ -1,23 +1,11 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
 
-const AddItemModal = ({ isOpen, onAddItem, handleCloseModal }) => {
+const AddItemModal = ({ isOpen, onAddItem, handleCloseModal, buttonText }) => {
   const [name, setName] = useState("");
-  // const handleNameChange = (e) => {
-  //   setName(e.target.value);
-  // };
-
   const [imageUrl, setUrl] = useState("");
-  // const handleUrlChange = (e) => {
-  //   setUrl(e.target.value);
-  // };
-
   const [weather, setWeather] = useState("");
-  // const handleWeatherChange = (e) => {
-  //   setWeather(e.target.value);
-  // };
-
   const { values, handleChange, setValues } = useForm({
     _id: null,
     name: "",
@@ -36,15 +24,15 @@ const AddItemModal = ({ isOpen, onAddItem, handleCloseModal }) => {
     setWeather("");
   };
 
-  React.useEffect(handleResetInputs, [isOpen]);
+  useEffect(handleResetInputs, [isOpen]);
 
   return (
     <ModalWithForm
-      buttonText="Add garment"
       title="New garment"
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      buttonText={buttonText}
     >
       <label htmlFor="name" className="modal__label">
         Name{" "}

@@ -1,6 +1,11 @@
 import React from "react";
 
-function DeleteConfirmationModal({ isOpen, onClose, onDeleteItem }) {
+function DeleteConfirmationModal({
+  isOpen,
+  onClose,
+  onDeleteItem,
+  buttonText,
+}) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__delete-modal">
@@ -19,7 +24,7 @@ function DeleteConfirmationModal({ isOpen, onClose, onDeleteItem }) {
           className="modal__delete-btn modal__text"
           onClick={onDeleteItem}
         >
-          Yes, delete item
+          {buttonText}
         </button>
         <button
           className="modal__cancel-btn modal__text"
