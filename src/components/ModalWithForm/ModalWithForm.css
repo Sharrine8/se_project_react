@@ -122,6 +122,10 @@
   margin: 0;
 }
 
+.modal__delete-btn_hidden {
+  visibility: hidden;
+}
+
 .modal__image {
   margin: 0;
   padding: 0;

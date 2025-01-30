@@ -28,6 +28,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
                   key={item._id}
                   props={item}
                   onCardClick={handleCardClick}
+                  // isLoggedIn={isLoggedIn}
                 />
               );
             })}

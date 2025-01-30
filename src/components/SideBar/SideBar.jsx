@@ -1,11 +1,21 @@
-import avatar from "../../assets/avatar.png";
 import "./SideBar.css";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function SideBar() {
+function SideBar({ handleProfileClick }) {
+  const user = useContext(CurrentUserContext);
   return (
     <div className="sidebar">
-      <img className="sidebar__avatar" src={avatar} alt="Avatar" />
-      <p className="sidebar__username">Terrace Tegegne</p>
+      <div className="sidebar__user-info">
+        <img className="sidebar__avatar" src={user.avatar} alt="Avatar" />
+        <p className="sidebar__username">{user.name}</p>
+      </div>
+      <div className="sidebar__links">
+        <button className="sidebar__btn" onClick={handleProfileClick}>
+          Change profile data
+        </button>
+        <button className="sidebar__btn">Log out</button>
+      </div>
     </div>
   );
 }

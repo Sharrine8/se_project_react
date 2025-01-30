@@ -1,4 +1,4 @@
-.item-card {
+.card {
   height: 328px;
   width: 325px;
   border-radius: 10px;
@@ -10,22 +10,53 @@
   gap: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  position: relative;
 }
 
-.item-card__info {
+.card__header {
+  position: absolute;
+  display: flex;
+  max-width: 100%;
+  top: 15px;
+  gap: 5px;
+  align-items: center;
+  cursor: default;
+}
+
+.card__info {
   background-color: white;
-  margin: 15px 0 0;
+  margin: 0;
   width: fit-content;
   border-radius: 5px;
   padding: 2px 12px;
-  position: absolute;
   font-size: 16px;
   font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
 }
 
-.item-card__image {
+.card__image {
   background-position: center;
   overflow: hidden;
   border-radius: 12px;
+  max-width: 100%;
+}
+
+.card__like-btn {
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 18px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__like-btn_active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card__like-img {
+  object-fit: cover;
+  cursor: pointer;
 }

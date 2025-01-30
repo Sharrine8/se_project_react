@@ -47,8 +47,23 @@
   font-weight: 700;
 }
 
+.header__avatar-fallback {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 0;
+}
+
 .header__avatar {
   width: 40px;
   height: 40px;
   padding: 4px 0 0 12px;
+  object-fit: cover;
 }

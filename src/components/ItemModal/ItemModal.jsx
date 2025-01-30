@@ -1,4 +1,12 @@
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+
 function ItemModal({ activeModal, card, onClose, onDeleteItem }) {
+  const user = useContext(CurrentUserContext);
+  const isOwn = card.owner === user._id;
+  const itemDeleteButtonClassName = `modal__delete-button ${
+    isOwn ? "" : "modal__delete-button_hidden"
+  }`;
   return (
     <div className={`modal ${activeModal === "preview" ? "modal_opened" : ""}`}>
       <div className="modal__image-content modal__content_type_image">
@@ -14,13 +22,15 @@ function ItemModal({ activeModal, card, onClose, onDeleteItem }) {
             <p className="modal__text">Weather: {card.weather}</p>
           </div>
           <div className="modal__right">
-            <button
-              type="button"
-              className="modal__delete-btn"
-              onClick={onDeleteItem}
-            >
-              Delete item
-            </button>
+            {isOwn && (
+              <button
+                type="button"
+                className={itemDeleteButtonClassName}
+                onClick={onDeleteItem}
+              >
+                Delete item
+              </button>
+            )}
           </div>
         </div>
       </div>
