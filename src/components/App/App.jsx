@@ -11,7 +11,14 @@ import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
-import { getItems, addItem, deleteItem, editProfile } from "../../utils/api.js";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  editProfile,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/api.js";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import * as auth from "../../utils/auth.js";
@@ -105,6 +112,22 @@ function App() {
       .catch(console.error);
   };
 
+  const handleCardLike = ({ _id, isLiked }) => {
+    !isLiked
+      ? addCardLike(_id)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === _id ? updatedCard : item))
+            );
+          })
+          .catch(console.error)
+      : removeCardLike(_id).then((updatedCard) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === _id ? updatedCard : item))
+          );
+        });
+  };
+
   //User signin/signup functions
 
   const handleRegisterUser = ({ name, password, avatar, email }) => {
@@ -141,13 +164,17 @@ function App() {
     setIsLoading(true);
     editProfile(user)
       .then((res) => {
-        setCurrentUser({ _id: res.id, user: res.name, avatar: res.avatar });
+        setCurrentUser(res);
+        return res;
+      })
+      .then((res) => {
+        console.log("Updated user:", res);
+        console.log("Current user state:", currentUser);
         closeActiveModal();
       })
       .catch(console.error)
       .finally(() => {
         setIsLoading(false);
-        console.log(currentUser);
       });
   };
 
@@ -232,6 +259,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                   />
                 }
               />

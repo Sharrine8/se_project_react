@@ -1,5 +1,5 @@
 import "./ItemCard.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import liked from "../../assets/liked-btn.svg";
 import unliked from "../../assets/unliked-btn.svg";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -13,10 +13,19 @@ function ItemCard({ props, onCardClick, onCardLike }) {
   };
 
   const handleLike = () => {
-    // onCardLike({});
+    console.log(isLiked, isLikedBy);
+    onCardLike({ _id: props._id, isLiked: props.likes });
     setIsLiked(!isLiked);
     setIsLikedBy([]);
+    console.log(props);
+    console.log(isLiked, isLikedBy);
   };
+
+  useEffect(() => {
+    if (props.likes.includes(user._id) || isLikedBy.includes(user._id)) {
+      setIsLiked(true);
+    }
+  }, [user]);
 
   return (
     <div className="card">

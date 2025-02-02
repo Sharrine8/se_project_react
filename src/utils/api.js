@@ -47,3 +47,17 @@ export function editProfile(user) {
     }),
   });
 }
+
+export function addCardLike(id) {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: authorization,
+  });
+}
+
+export function removeCardLike(id) {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: authorization,
+  });
+}

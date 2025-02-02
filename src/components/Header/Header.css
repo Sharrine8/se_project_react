@@ -26,6 +26,7 @@
 
 .header__nav_user {
   display: flex;
+  gap: 12px;
 }
 
 .header__add-clothes-btn {
@@ -64,6 +65,6 @@
 .header__avatar {
   width: 40px;
   height: 40px;
-  padding: 4px 0 0 12px;
   object-fit: cover;
+  border-radius: 50%;
 }

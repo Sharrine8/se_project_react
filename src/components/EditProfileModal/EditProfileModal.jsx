@@ -37,7 +37,7 @@ const EditProfileModal = ({
 
   useEffect(() => {
     currentUserValue();
-  }, []);
+  }, [currentUser]);
 
   return (
     <ModalWithForm
@@ -50,7 +50,7 @@ const EditProfileModal = ({
       <label htmlFor="name" className="modal__label">
         Name *{""}
         <input
-          name="Name"
+          name="name"
           id="profileName"
           placeholder={currentUser.name}
           minLength="2"

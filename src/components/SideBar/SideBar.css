@@ -2,20 +2,31 @@
   gap: 16px;
   min-width: 18vw;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar__user-info {
   display: flex;
+  gap: 12px;
 }
 
 .sidebar__avatar {
   width: 56px;
   height: 56px;
+  border-radius: 50%;
 }
 
 .sidebar__username {
   font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
+}
+
+.sidebar__links {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .sidebar__btn {
