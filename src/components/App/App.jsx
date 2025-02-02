@@ -48,6 +48,7 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  console.log(localStorage.getItem("jwt"));
   //Modal functions
 
   const handleAddClick = () => {
