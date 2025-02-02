@@ -3,7 +3,12 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
+function ClothesSection({
+  handleCardClick,
+  clothingItems,
+  handleAddClick,
+  onCardLike,
+}) {
   const user = useContext(CurrentUserContext);
   return (
     <div className="clothes-section">
@@ -21,6 +26,7 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
                 key={item._id}
                 props={item}
                 onCardClick={handleCardClick}
+                onCardLike={onCardLike}
               />
             );
           }
