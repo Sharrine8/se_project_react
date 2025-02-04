@@ -48,7 +48,6 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  console.log(localStorage.getItem("jwt"));
   //Modal functions
 
   const handleAddClick = () => {
@@ -260,7 +259,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    onCardLike={handleCardLike}
+                    OnLikeClick={handleCardLike}
                   />
                 }
               />
@@ -274,7 +273,7 @@ function App() {
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       handleProfileClick={handleProfileClick}
-                      onCardLike={handleCardLike}
+                      OnLikeClick={handleCardLike}
                     />
                   </ProtectedRoute>
                 }
