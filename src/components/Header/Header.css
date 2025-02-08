@@ -22,6 +22,8 @@
 
 .header__nav {
   display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .header__nav_user {
@@ -39,6 +41,17 @@
   font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
   cursor: pointer;
+}
+
+.header__log-btn {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
 }
 
 .header__username {

@@ -18,7 +18,6 @@ function Header({
   isLoggedIn,
 }) {
   const currentUser = useContext(CurrentUserContext);
-
   return (
     <header className="header">
       <div className="header__container">
@@ -46,7 +45,7 @@ function Header({
             >
               <div className="header__nav_user">
                 <p className="header__username">{currentUser.name}</p>
-                {currentUser.avatar ? (
+                {currentUser.avatar.length > 2 ? (
                   <img
                     className="header__avatar"
                     src={currentUser.avatar}
@@ -54,7 +53,7 @@ function Header({
                   />
                 ) : (
                   <div className="header__avatar header__avatar-fallback">
-                    {firstLetter.toUpperCase()}
+                    {currentUser?.name.charAt(0).toUpperCase()}
                   </div>
                 )}
               </div>
@@ -64,17 +63,17 @@ function Header({
           <>
             <button
               type="button"
-              className="header__signup-btn"
+              className="header__log-btn"
               onClick={handleSignupClick}
             >
               Sign Up
             </button>
             <button
               type="button"
-              className="header__signin-btn"
+              className="header__log-btn"
               onClick={handleSigninClick}
             >
-              Sign In
+              Log In
             </button>
           </>
         )}
@@ -84,5 +83,3 @@ function Header({
 }
 
 export default Header;
-//If there is no image provided by user, show username's first letter
-//in a circle

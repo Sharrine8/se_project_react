@@ -1,6 +1,7 @@
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./LoginModal.css";
 
 const LoginModal = ({
   isOpen,
@@ -8,6 +9,7 @@ const LoginModal = ({
   handleSigninClick,
   handleCloseModal,
   buttonText,
+  handleModalSwitch,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +30,8 @@ const LoginModal = ({
 
   useEffect(handleResetInputs, [isOpen]);
 
+  const switchButton = "or Sign Up";
+
   return (
     <ModalWithForm
       title="Login"
@@ -36,6 +40,8 @@ const LoginModal = ({
       handleSigninClick={handleSigninClick}
       onSubmit={handleSubmit}
       buttonText={buttonText}
+      switchButton={switchButton}
+      handleModalSwitch={handleModalSwitch}
     >
       <label htmlFor="email" className="modal__label">
         Email{" "}

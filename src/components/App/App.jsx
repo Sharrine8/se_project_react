@@ -73,6 +73,16 @@ function App() {
     setActiveModal("edit-profile");
   };
 
+  const switchRegisterModal = () => {
+    closeActiveModal();
+    setActiveModal("login");
+  };
+
+  const switchLoginModal = () => {
+    closeActiveModal();
+    setActiveModal("register");
+  };
+
   //Toggle switch
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
@@ -158,6 +168,12 @@ function App() {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    setCurrentUser({});
+    setIsLoggedIn(false);
   };
 
   const handleEditProfile = (user) => {
@@ -274,6 +290,7 @@ function App() {
                       handleAddClick={handleAddClick}
                       handleProfileClick={handleProfileClick}
                       OnLikeClick={handleCardLike}
+                      handleLogout={handleLogout}
                     />
                   </ProtectedRoute>
                 }
@@ -310,6 +327,7 @@ function App() {
               onRegister={handleRegisterUser}
               handleSignupClick={handleSignupClick}
               buttonText={isLoading ? "Saving" : "Signup"}
+              handleModalSwitch={switchRegisterModal}
             />
           )}
           {activeModal === "login" && (
@@ -319,6 +337,7 @@ function App() {
               onLogin={handleLogin}
               handleSigninClick={handleSigninClick}
               buttonText={isLoading ? "Saving" : "Login"}
+              handleModalSwitch={switchLoginModal}
             />
           )}
           {activeModal === "edit-profile" && (

@@ -1,6 +1,7 @@
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./RegisterModal";
 
 const RegisterModal = ({
   isOpen,
@@ -8,6 +9,7 @@ const RegisterModal = ({
   handleSignupClick,
   handleCloseModal,
   buttonText,
+  handleModalSwitch,
 }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -35,6 +37,8 @@ const RegisterModal = ({
 
   useEffect(handleResetInputs, [isOpen]);
 
+  const switchButton = "or Log In";
+
   return (
     <ModalWithForm
       title="Register"
@@ -43,6 +47,8 @@ const RegisterModal = ({
       onSubmit={handleSubmit}
       handleSignupClick={handleSignupClick}
       buttonText={buttonText}
+      switchButton={switchButton}
+      handleModalSwitch={handleModalSwitch}
     >
       <label htmlFor="email" className="modal__label">
         Email{" "}
@@ -97,7 +103,6 @@ const RegisterModal = ({
           placeholder="Avatar URL"
           value={values.avatarUrl}
           onChange={handleChange}
-          required
         />
       </label>
     </ModalWithForm>

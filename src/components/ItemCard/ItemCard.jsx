@@ -13,7 +13,6 @@ function ItemCard({ props, onCardClick, OnLikeClick }) {
 
   const handleLike = () => {
     OnLikeClick({ _id: props._id, isLiked, user });
-    console.log(props, isLiked, user);
   };
 
   return (
