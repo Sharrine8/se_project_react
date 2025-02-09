@@ -10,13 +10,14 @@ function ModalWithForm({
   buttonText,
   handleModalSwitch,
   switchButton,
-  values,
+  values = {},
   handleChange,
 }) {
-  const isFormValid = Object.values(values).every((value) => {
-    console.log(value);
-    return value && value.trim() !== "";
-  });
+  const isFormValid =
+    values &&
+    Object.values(values).every((value) => {
+      return value && value.trim() !== "";
+    });
   return (
     <div className={`modal ${isOpen === isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">

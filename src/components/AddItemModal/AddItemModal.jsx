@@ -18,13 +18,21 @@ const AddItemModal = ({ isOpen, onAddItem, handleCloseModal, buttonText }) => {
     onAddItem(values);
   }
 
-  const handleResetInputs = () => {
-    setName("");
-    setUrl("");
-    setWeather("");
-  };
+  useEffect(() => {
+    if (isOpen) {
+      setName("");
+      setUrl("");
+      setWeather("");
+    }
+  });
 
-  useEffect(handleResetInputs, [isOpen]);
+  // const handleResetInputs = () => {
+  //   setName("");
+  //   setUrl("");
+  //   setWeather("");
+  // };
+
+  // useEffect(handleResetInputs, [isOpen]);
 
   return (
     <ModalWithForm
