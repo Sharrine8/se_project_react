@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
@@ -10,6 +10,8 @@ const LoginModal = ({
   buttonText,
   handleModalSwitch,
 }) => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const { values, handleChange, setValues } = useForm({
     email: "",
     password: "",
@@ -21,7 +23,9 @@ const LoginModal = ({
   }
 
   const handleResetInputs = () => {
-    setValues({ email: "", password: "" });
+    // setValues({ email: "", password: "" });
+    setPassword("");
+    setEmail("");
   };
 
   useEffect(handleResetInputs, [isOpen]);

@@ -14,6 +14,7 @@ function ModalWithForm({
   handleChange,
 }) {
   const isFormValid = Object.values(values).every((value) => {
+    console.log(value);
     return value && value.trim() !== "";
   });
   return (
