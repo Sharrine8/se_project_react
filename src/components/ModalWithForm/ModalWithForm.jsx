@@ -27,7 +27,6 @@ function ModalWithForm({
           {React.Children.map(children, (child) =>
             React.cloneElement(child, { onChange: handleChange })
           )}
-          {/* {children} */}
           <div className="modal__form-btns">
             <button
               type="submit"

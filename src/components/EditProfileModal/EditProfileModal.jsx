@@ -44,6 +44,8 @@ const EditProfileModal = ({
       <label htmlFor="name" className="modal__label">
         Name *{""}
         <input
+          type="text"
+          className="modal__input"
           name="name"
           id="profileName"
           placeholder={currentUser.name}

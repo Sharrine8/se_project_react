@@ -26,14 +26,6 @@ const AddItemModal = ({ isOpen, onAddItem, handleCloseModal, buttonText }) => {
     }
   });
 
-  // const handleResetInputs = () => {
-  //   setName("");
-  //   setUrl("");
-  //   setWeather("");
-  // };
-
-  // useEffect(handleResetInputs, [isOpen]);
-
   return (
     <ModalWithForm
       title="New garment"
