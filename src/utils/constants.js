@@ -43,7 +43,7 @@ export const weatherOptions = [
   {
     day: false,
     condition: "rain",
-    url: new URL("../assets/night/rain.png", import.meta.url).href,
+    url: new URL("../assets/night/rainy.png", import.meta.url).href,
   },
   {
     day: false,

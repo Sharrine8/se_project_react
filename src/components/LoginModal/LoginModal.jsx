@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 

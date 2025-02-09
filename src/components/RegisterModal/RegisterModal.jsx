@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
@@ -10,10 +10,6 @@ const RegisterModal = ({
   buttonText,
   handleModalSwitch,
 }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
   const { values, handleChange, setValues } = useForm({
     _id: null,
     email: "",
@@ -23,10 +19,6 @@ const RegisterModal = ({
   });
 
   const handleResetInputs = () => {
-    setEmail("");
-    setPassword("");
-    setName("");
-    setAvatar("");
     setValues({
       email: "",
       password: "",
@@ -40,7 +32,8 @@ const RegisterModal = ({
     onRegister(values);
   }
 
-  useEffect(handleResetInputs, [isOpen]);
+  // useEffect(handleResetInputs, [isOpen]);
+  useEffect(handleResetInputs, [isOpen, setValues]);
 
   const switchButton = "or Log In";
 

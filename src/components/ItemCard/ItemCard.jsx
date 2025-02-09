@@ -1,5 +1,5 @@
 import "./ItemCard.css";
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import liked from "../../assets/liked-btn.svg";
 import unliked from "../../assets/unliked-btn.svg";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
