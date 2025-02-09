@@ -97,29 +97,25 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleAddItemSubmit = (values) => {
-    setIsLoading(true);
-    return addItem(values)
-      .then((item) => {
+  const handleAddItem = (item) => {
+    const makeRequest = () => {
+      return addItem(item).then((item) => {
         setClothingItems([item, ...clothingItems]);
-        closeActiveModal();
-        setIsLoading(false);
-      })
-      .catch(console.error);
+      });
+    };
+    handleSubmit(makeRequest);
   };
 
   const handleCardDelete = () => {
-    setIsLoading(true);
-    return deleteItem(selectedCard._id)
-      .then(() => {
+    const makeRequest = () => {
+      return deleteItem(selectedCard._id).then(() => {
         const itemList = clothingItems.filter((item) => {
           return item._id !== selectedCard._id;
         });
         setClothingItems(itemList);
-        closeActiveModal();
-        setIsLoading(false);
-      })
-      .catch(console.error);
+      });
+    };
+    handleSubmit(makeRequest);
   };
 
   const handleCardLike = ({ _id, isLiked }) => {
@@ -131,43 +127,37 @@ function App() {
             );
           })
           .catch(console.error)
-      : removeCardLike(_id).then((updatedCard) => {
-          setClothingItems((cards) =>
-            cards.map((item) => (item._id === _id ? updatedCard : item))
-          );
-        });
+      : removeCardLike(_id)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === _id ? updatedCard : item))
+            );
+          })
+          .catch(console.error);
   };
 
   //User signin/signup functions
 
   const handleRegisterUser = ({ name, password, avatar, email }) => {
-    setIsLoading(true);
-    auth
-      .onRegister(email, password, name, avatar)
-      .then(({ name, email, avatar }) => {
-        setCurrentUser({ name, email, avatar });
-        closeActiveModal();
-      })
-      .catch(console.error)
-      .finally(() => {
-        setIsLoading(false);
-      });
+    const makeRequest = () => {
+      return auth
+        .onRegister(email, password, name, avatar)
+        .then(({ name, email, avatar }) => {
+          setCurrentUser({ name, email, avatar });
+        });
+    };
+    handleSubmit(makeRequest);
   };
 
   const handleLogin = ({ email, password }) => {
-    setIsLoading(true);
-    auth
-      .onLogin(email, password)
-      .then((data) => {
+    const makeRequest = () => {
+      return auth.onLogin(email, password).then((data) => {
         localStorage.setItem("jwt", data.token);
         setCurrentUser(data.user);
         setIsLoggedIn(true);
-        closeActiveModal();
-      })
-      .catch(console.error)
-      .finally(() => {
-        setIsLoading(false);
       });
+    };
+    handleSubmit(makeRequest);
   };
 
   const handleLogout = () => {
@@ -177,20 +167,23 @@ function App() {
   };
 
   const handleEditProfile = (user) => {
-    setIsLoading(true);
-    editProfile(user)
-      .then((res) => {
+    const makeRequest = () => {
+      return editProfile(user).then((res) => {
         setCurrentUser(res);
         return res;
-      })
-      .then((res) => {
-        closeActiveModal();
-      })
-      .catch(console.error)
-      .finally(() => {
-        setIsLoading(false);
       });
+    };
+    handleSubmit(makeRequest);
   };
+
+  //Submit function
+  function handleSubmit(request) {
+    setIsLoading(true);
+    request()
+      .then(closeActiveModal)
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+  }
 
   //Token functions
   const handleTokenLogin = (token) => {
@@ -300,7 +293,7 @@ function App() {
             <AddItemModal
               handleCloseModal={closeActiveModal}
               isOpen={activeModal === "add-garment"}
-              onAddItem={handleAddItemSubmit}
+              onAddItem={handleAddItem}
               buttonText={isLoading ? "Saving" : "Add Garment"}
             />
           )}

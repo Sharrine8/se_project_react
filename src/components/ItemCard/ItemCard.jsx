@@ -25,7 +25,11 @@ function ItemCard({ props, onCardClick, OnLikeClick }) {
           }`}
           onClick={handleLike}
         >
-          <img src={isLiked ? liked : unliked} className="card__like-img" />
+          <img
+            alt={user.name}
+            src={isLiked ? liked : unliked}
+            className="card__like-img"
+          />
         </button>
       </div>
       <img

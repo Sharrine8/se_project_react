@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
 
 const AddItemModal = ({ isOpen, onAddItem, handleCloseModal, buttonText }) => {
-  const [name, setName] = useState("");
-  const [imageUrl, setUrl] = useState("");
-  const [weather, setWeather] = useState("");
   const { values, handleChange, setValues } = useForm({
     _id: null,
     name: "",
@@ -16,15 +13,8 @@ const AddItemModal = ({ isOpen, onAddItem, handleCloseModal, buttonText }) => {
   function handleSubmit(e) {
     e.preventDefault();
     onAddItem(values);
+    setValues({ name: "", weather: "", imageUrl: "" });
   }
-
-  useEffect(() => {
-    if (isOpen) {
-      setName("");
-      setUrl("");
-      setWeather("");
-    }
-  });
 
   return (
     <ModalWithForm
