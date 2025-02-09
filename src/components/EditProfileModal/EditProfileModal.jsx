@@ -21,15 +21,9 @@ const EditProfileModal = ({
   };
 
   const handleSubmit = (e) => {
-    console.log(currentUser);
     e.preventDefault();
     handleEditProfile({ name, avatar });
-    // const user = await editProfile({ name, avatar });
-    // setName(user.name);
-    // setAvatar(user.avatar);
-    console.log(name, avatar);
   };
-  console.log(currentUser);
   const currentUserValue = () => {
     setName(currentUser.name);
     setAvatar(currentUser.avatar);

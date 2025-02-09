@@ -1,7 +1,7 @@
 .switch {
   display: flex;
   position: relative;
-  color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 1);
 }
 
 .switch__box {
@@ -12,6 +12,10 @@
   appearance: none;
   background-color: #fff;
   cursor: pointer;
+}
+
+.switch__box:hover {
+  border-color: #000;
 }
 
 .switch__slider {

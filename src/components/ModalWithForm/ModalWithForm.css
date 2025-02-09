@@ -107,7 +107,7 @@
 
 .modal__submit:disabled {
   background-color: rgba(0, 0, 0, 0.3);
-  cursor: none;
+  cursor: default;
 }
 
 .modal__submit:hover {

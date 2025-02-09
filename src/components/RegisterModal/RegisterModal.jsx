@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "../../hooks/hooks";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./RegisterModal";
 
 const RegisterModal = ({
   isOpen,
@@ -11,10 +10,6 @@ const RegisterModal = ({
   buttonText,
   handleModalSwitch,
 }) => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState("");
   const { values, handleChange, setValues } = useForm({
     _id: null,
     email: "",
@@ -23,17 +18,19 @@ const RegisterModal = ({
     avatar: "",
   });
 
+  const handleResetInputs = () => {
+    setValues({
+      email: "",
+      password: "",
+      name: "",
+      avatar: "",
+    });
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
     onRegister(values);
   }
-
-  const handleResetInputs = () => {
-    setName("");
-    setAvatar("");
-    setEmail("");
-    setPassword("");
-  };
 
   useEffect(handleResetInputs, [isOpen]);
 
@@ -49,6 +46,8 @@ const RegisterModal = ({
       buttonText={buttonText}
       switchButton={switchButton}
       handleModalSwitch={handleModalSwitch}
+      values={values}
+      handleChange={handleChange}
     >
       <label htmlFor="email" className="modal__label">
         Email{" "}
@@ -101,7 +100,7 @@ const RegisterModal = ({
           name="avatar"
           id="avatar"
           placeholder="Avatar URL"
-          value={values.avatarUrl}
+          value={values.avatar}
           onChange={handleChange}
         />
       </label>

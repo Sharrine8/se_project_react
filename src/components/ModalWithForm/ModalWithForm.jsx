@@ -1,3 +1,4 @@
+import React from "react";
 import "./ModalWithForm.css";
 
 function ModalWithForm({
@@ -9,16 +10,28 @@ function ModalWithForm({
   buttonText,
   handleModalSwitch,
   switchButton,
+  values,
+  handleChange,
 }) {
+  const isFormValid = Object.values(values).every((value) => {
+    return value && value.trim() !== "";
+  });
   return (
     <div className={`modal ${isOpen === isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button onClick={onClose} type="button" className="modal__close-btn" />
         <form onSubmit={onSubmit} className="modal__form">
-          {children}
+          {React.Children.map(children, (child) =>
+            React.cloneElement(child, { onChange: handleChange })
+          )}
+          {/* {children} */}
           <div className="modal__form-btns">
-            <button type="submit" className="modal__submit">
+            <button
+              type="submit"
+              className="modal__submit"
+              disabled={!isFormValid}
+            >
               {buttonText}
             </button>
             <button

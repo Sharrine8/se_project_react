@@ -184,8 +184,6 @@ function App() {
         return res;
       })
       .then((res) => {
-        console.log("Updated user:", res);
-        console.log("Current user state:", currentUser);
         closeActiveModal();
       })
       .catch(console.error)
@@ -336,7 +334,7 @@ function App() {
               isOpen={activeModal === "login"}
               onLogin={handleLogin}
               handleSigninClick={handleSigninClick}
-              buttonText={isLoading ? "Saving" : "Login"}
+              buttonText={isLoading ? "Logging in" : "Login"}
               handleModalSwitch={switchLoginModal}
             />
           )}
