@@ -36,9 +36,9 @@
 
 .card__image {
   background-position: center;
-  overflow: hidden;
   border-radius: 12px;
   max-width: 100%;
+  object-fit: cover;
 }
 
 .card__like-btn {
