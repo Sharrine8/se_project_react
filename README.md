@@ -15,3 +15,8 @@ Users can create an account, log in, add and delete their own clothing items, as
 - [Figma Design](<https://www.figma.com/file/lNHEpsFEPoFVfsCDUf8nKA/WTWR-(Apiary)?node-id=163%3A194>)
 - [Live Site](https://sharrine8.github.io/se_project_react)
 - [Backend](https://github.com/Sharrine8/se_project_express)
+
+## Message to reviewer
+
+Thank you so much for the suggestions! They were fun to implement.
+I have been trying to figure out why it is working on my side, but not on other sides and have altered the "authorization". I am wondering if perhaps there is something that is being clicked or done before the liking/adding/deleting cards that may be affecting it. Can you tell me what steps were taken beforehand so that I can troubleshoot more effectively? THANK YOU!
