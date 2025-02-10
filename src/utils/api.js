@@ -2,9 +2,11 @@ const baseUrl = "http://localhost:3001";
 const headers = {
   "Content-Type": "application/json",
 };
-const authorization = {
-  "Content-Type": "application/json",
-  authorization: `Bearer ${localStorage.getItem("jwt")}`,
+const authorization = () => {
+  return {
+    "Content-Type": "application/json",
+    authorization: `Bearer ${localStorage.getItem("jwt")}`,
+  };
 };
 
 export function checkResponse(res) {

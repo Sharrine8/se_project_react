@@ -190,6 +190,7 @@ function App() {
     auth
       .checkToken(token)
       .then((data) => {
+        console.log(data);
         setCurrentUser(data);
         setIsLoggedIn(true);
       })
@@ -236,8 +237,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("jwt")) {
-      const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("jwt");
+    if (token) {
       handleTokenLogin(token);
     } else {
       return;
