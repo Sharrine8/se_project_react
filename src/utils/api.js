@@ -27,7 +27,7 @@ export function getItems() {
 export function addItem({ _id, name, weather, imageUrl }) {
   return request(`${baseUrl}/items`, {
     method: "POST",
-    headers: authorization,
+    headers: authorization(),
     body: JSON.stringify({ _id, name, weather, imageUrl }),
   });
 }
@@ -35,14 +35,14 @@ export function addItem({ _id, name, weather, imageUrl }) {
 export function deleteItem(cardId) {
   return request(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
-    headers: authorization,
+    headers: authorization(),
   });
 }
 
 export function editProfile(user) {
   return request(`${baseUrl}/users/me`, {
     method: "PATCH",
-    headers: authorization,
+    headers: authorization(),
     body: JSON.stringify({
       name: user.name,
       avatar: user.avatar,
@@ -53,13 +53,13 @@ export function editProfile(user) {
 export function addCardLike(id) {
   return request(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
-    headers: authorization,
+    headers: authorization(),
   });
 }
 
 export function removeCardLike(id) {
   return request(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
-    headers: authorization,
+    headers: authorization(),
   });
 }
