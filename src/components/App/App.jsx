@@ -190,7 +190,6 @@ function App() {
     auth
       .checkToken(token)
       .then((data) => {
-        console.log(data);
         setCurrentUser(data);
         setIsLoggedIn(true);
       })
