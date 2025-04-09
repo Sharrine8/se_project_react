@@ -1,4 +1,8 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  ProcessingInstruction.env.NODE_ENV === "production"
+    ? "https://api.wtwr.daustin.com"
+    : "http://localhost:3001";
+
 const headers = {
   "Content-Type": "application/json",
 };
