@@ -1,7 +1,7 @@
 import { request } from "./api";
 
 const baseUrl =
-  ProcessingInstruction.env.NODE_ENV === "production"
+  process.env.NODE_ENV === "production"
     ? "https://api.wtwr.daustin.com"
     : "http://localhost:3001";
 const headers = {
