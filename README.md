@@ -22,4 +22,5 @@ Users can create an account, log in, add and delete their own clothing items, as
 
 - [Figma Design](<https://www.figma.com/file/lNHEpsFEPoFVfsCDUf8nKA/WTWR-(Apiary)?node-id=163%3A194>)
 - [Live Site](https://wtwr.daustin.com/#/)
+- [Frontend] (https://github.com/Sharrine8/se_project_react)
 - [Backend](https://github.com/Sharrine8/se_project_express)
