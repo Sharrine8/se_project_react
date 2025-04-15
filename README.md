@@ -2,7 +2,7 @@
 
 ## About the project
 
-**Full-stack application.** Use the following frameworks:
+**Full-stack application.**
 
 - React.js
 - React Router
@@ -24,3 +24,4 @@ Users can create an account, log in, add and delete their own clothing items, as
 - [Live Site](https://wtwr.daustin.com/#/)
 - [Frontend] (https://github.com/Sharrine8/se_project_react)
 - [Backend](https://github.com/Sharrine8/se_project_express)
+- API: https://api.wtwr.daustin.com/
