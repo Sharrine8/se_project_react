@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.wtwr.daustin.com"
+    ? import.meta.env.VITE_BASE_URL
     : "http://localhost:3001";
 
 const headers = {
