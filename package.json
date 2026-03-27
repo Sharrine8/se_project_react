@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://wtwr.daustin.com",
+  "homepage": "https://se-project-react-sigma.vercel.app/",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./dist/* christia_anderson@wtwr.daustin.com:/home/christia_anderson/frontend"
+    "deploy": "npm run build"
   },
   "dependencies": {
     "react": "^18.3.1",
